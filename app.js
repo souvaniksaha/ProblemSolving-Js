@@ -49,9 +49,9 @@ function isPalindrome(str) {
 //Reverse an Integer
 function reverseInteger(number) {
     const reverseNum = number.toString()
-                                .split('')
-                                .reverse()
-                                .join('');
+        .split('')
+        .reverse()
+        .join('');
     return parseInt(reverseNum) * Math.sign(number);
 }
 
@@ -59,12 +59,51 @@ function reverseInteger(number) {
 // Capitalize each word
 
 function capitaLizeWord(sentence) {
-   return sentence.toLowerCase()
-                    .split(' ')
-                    .map(function(word){
-                        return word.substr(0,1).toUpperCase() + word.substr(1);
-                    })
-                    
-                    .join(' ');
-            }
-console.log(capitaLizeWord('hey My SELF SouvNik SahA'));
+    return sentence.toLowerCase()
+        .split(' ')
+        .map(function (word) {
+            return word.substr(0, 1).toUpperCase() + word.substr(1);
+        })
+
+        .join(' ');
+}
+
+//Count max chracter from a word
+
+function countMaxChar(str) {
+    let charMap = {};
+    let maxChar = '';
+    let maxCount = 0;
+
+    str.split('').forEach(element => {
+        if (charMap[element])
+            charMap[element]++;
+        else
+            charMap[element] = 1;
+    });
+
+    for (const char in charMap) {
+
+        if (charMap[char] > maxCount) {
+            maxCount = charMap[char];
+            maxChar = char;
+        }
+    }
+    return `${maxChar}- ${maxCount} times`;
+}
+
+
+//FizzBuzz
+function fizBuzz() {
+    for (let index = 1; index <= 100; index++) {
+        if ((index % 3 === 0) && (index % 5 === 0))
+            console.log('FizzBuzz');
+        else if (index % 3 === 0)
+            console.log('Fizz');
+        else if (index % 5 === 0)
+            console.log('Buzz');
+
+
+    }
+}
+fizBuzz();
